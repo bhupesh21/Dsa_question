@@ -1,25 +1,19 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-//         int count;
-//       //  int cval;
-//         for(int i=0;i<nums.size();i++){
-//             if(nums[i]==nums[i+1]){
-//                 count++;
-//                 break;
-//             }
-//         }
-//         return count;
-//     }
         
-    
+        map<int,int>m;
+        int n = nums.size();
+        for(int i=0;i<nums.size();i++)
+        {
+            m[nums[i]]++;
+        }
         
-      
-       
-//     };
-
-        sort(nums.begin(),nums.end());
-        return nums[nums.size()/2];
+        for(auto it:m)
+        {
+            if(it.second >n/2)
+                return it.first;
+        }
+        return -1;
     }
 };
-        
