@@ -5,23 +5,19 @@ public:
             return 0;
         }
         sort(nums.begin(),nums.end());
-        int prev=nums[0];
-        int cur=1;
-        int ans=1;
-        
+   int ans=nums[0];
+        int a=1;
+        int curr=1;
         for(int i=1;i<nums.size();i++){
-            if(nums[i]==prev+1){
-                cur++;
+            if(nums[i]==ans+1){
+                curr++;
+            }
+            else if(nums[i]!=ans){
+                curr=1;
+            }
+            ans=nums[i];
+            a=max(a,curr);
         }
-                
-        
-        else if(nums[i]!=prev){
-            cur=1;
-        }
-    prev=nums[i];
-        ans=max(ans,cur);
-        }
-        
-    return ans;
-}
+        return a;
+    }
 };
