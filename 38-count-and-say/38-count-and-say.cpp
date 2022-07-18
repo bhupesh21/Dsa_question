@@ -12,11 +12,11 @@ public:
         else{
             res+=to_string(count);
             res.push_back(c);
-            c=tmp[i];
-            count=1;
+             c=tmp[i];
+             count=1;
         }
-        res+=to_string(count);
-        res.push_back(c);
+         res+=to_string(count);
+     res.push_back(c);
         return res;
     }
 };
