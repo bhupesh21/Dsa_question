@@ -1,43 +1,32 @@
 class Solution {
 public:
+ string get_pal(string s,int left,int right){
+     int n=s.length();
+     while(left>=0 and right<n){
+         if(s[left]!=s[right]){
+             break;
+         }
+         left--;
+         right++;
+     }
+     return s.substr(left+1,right-left-1);
+ }
     string longestPalindrome(string s) {
-        
-        
-        if(s.length() == 0 || s.length() == 1) return s;
-        
-        
-        int start= 0;
-        int maxLen = 1;
-        
-        int mid = 0;
-        while(mid < s.length()){
-           int midBegin = mid;
-            int midEnd = mid;
-            
-            
-            while( midEnd + 1 < s.length() && s[midEnd] == s[midEnd + 1]){ 
-                midEnd++ ; 
-            }    
-            mid = midEnd + 1;
-          
-            int l =midBegin;
-            int r= midEnd;
-            
-            
-            while(l- 1 >= 0 && r + 1 < s.length() && s[l- 1] == s[r + 1]){
-                    l--;
-                    r++;
-            }
-            
-        
-            int currLen = r - l + 1;
-            if( currLen  > maxLen ){
-                start = l;
-                maxLen = currLen;
-            }
+     int n=s.length();
+        //Now we can do a two pointer approach
+        //Center se checking kr rha hu
+        if(s.empty()) return 0;
+        string longest;
+        for(int i=0;i<n;i++){
+            string odd=get_pal(s,i,i);
+            if(odd.length()>longest.length())
+                longest=odd;
         }
-        
-        return s.substr(start, maxLen);
+        for(int i=0;i<n;i++){
+            string even=get_pal(s,i,i+1);
+            if(even.length()>longest.length())
+                longest=even;
+        }
+        return longest;
     }
 };
-    
