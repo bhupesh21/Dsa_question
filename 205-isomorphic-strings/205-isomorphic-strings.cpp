@@ -8,11 +8,11 @@ public:
         // // for(int i=0;i<t;i++){
         //     mp[t[i]]++;
         // }
-        int sind[129]={0},tind[129]={0};
+        int si[129]={0},ti[129]={0};
         
         for(int i=0;i<s.size();i++)
-            if(sind[s[i]]!=tind[t[i]])return false;
-            else sind[s[i]]=tind[t[i]]=i+1;
+            if(si[s[i]]!=ti[t[i]])return false;
+            else si[s[i]]=ti[t[i]]=i+1;
             return true;
         
     }
