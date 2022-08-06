@@ -14,7 +14,7 @@ public:
         for(auto i:mp){
             if(i.second.size()!=1){
                 int s;
-                sort(i.second.begin(),i.second.end(),greater<int>());
+               sort(i.second.begin(),i.second.end(),greater<int>());
                 s=i.second[0]+i.second[1];
                 sum=max(sum,s);
             }
