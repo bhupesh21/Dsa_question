@@ -3,7 +3,7 @@ public:
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
         vector<vector<int>>ans;//to store  all subset'
         vector<int>curr;//to store current inividual subset that we build
-        sort(nums.begin(),nums.end());//sort the arryay so that duplicate can adjacent
+       sort(nums.begin(),nums.end());//sort the arryay so that duplicate can adjacent
         helper(nums,ans,curr,0);//we start from 0 index
         return ans;
         
