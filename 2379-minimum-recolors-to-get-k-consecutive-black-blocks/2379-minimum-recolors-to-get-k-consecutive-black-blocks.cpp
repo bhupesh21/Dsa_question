@@ -9,9 +9,10 @@ public:
                     count++;
                 }
             }
-            mini=min(mini,count);
-        }
-        return mini;
+                mini=min(mini,count);
+            }
+            return mini;
+        
         
     }
 };
