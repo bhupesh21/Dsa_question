@@ -8,7 +8,7 @@ public:
             switch(nums[m]){
                 case 0:
                     swap(nums[l++],nums[m++]);
-                    break;
+                        break;
                 case 1:
                     m++;
                     break;
@@ -16,8 +16,7 @@ public:
                     swap(nums[m],nums[h]);
                     h--;
             }
-            
         }
-        }
-    
+     
+    }
 };
