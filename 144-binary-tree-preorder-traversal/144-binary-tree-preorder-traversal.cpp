@@ -21,7 +21,7 @@ public:
         if(r==NULL){
             return ;
         }
-        res.push_back(r->val);
+       res.push_back(r->val);
         preorder(res,r->left);
         preorder(res,r->right);
     }
