@@ -21,8 +21,7 @@ public:
              return ;
          }
          postorder(res,r->left);
-        
          postorder(res,r->right);
-          res.push_back(r->val);
+         res.push_back(r->val);
     }
 };
