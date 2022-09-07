@@ -11,19 +11,18 @@
  */
 class Solution {
 public:
-    vector<int> inorderTraversal(TreeNode* root) {
+    vector<int> inorderTraversal(TreeNode* root)
+    {
         vector<int>res;
         inorder(res,root);
         return res;
     }
-   void inorder(vector<int>&res ,TreeNode *r){
-        if(r==NULL)
+    void inorder(vector<int>&res ,TreeNode *r) {
+        if(r==NULL){
             return;
-        
-        inorder(res,r->left);
-    //    cout<<root-data<<" ";
-            res.push_back(r->val);
-        inorder(res,r->right);
         }
-   
+        inorder(res,r->left);
+        res.push_back(r->val);//<<" ";
+        inorder(res,r->right);
+    }
 };
