@@ -1,30 +1,46 @@
 class Solution {
 public:
-    string get_pal(string s,int left,int right){
-       int n=s.length();
-        while(left>=0 and right<n){
-            if(s[left]!=s[right]){
-                break;
-            }
-                left--;
-            right++;
-        }
- return s.substr(left+1,right-left-1);
-    }
     string longestPalindrome(string s) {
-        int n=s.length();
-        if(s.empty())return 0;
-        string longest;
-        for(int i=0;i<n;i++){
-            string odd=get_pal(s,i,i);
-            if(odd.length()>longest.length())
-            longest=odd;
+       if(s.size()<=1)return s;
+        int max_len=0;
+        int st=0,end=0;
+        int n=s.size();
+        for(int i=0;i<n-1;i++){
+            int l=i,r=i;
+            while(l>=0 &&r<n){
+                if(s[l]==s[r]){
+                    l--;
+                    r++;
+                }
+                else
+                    break;
+            }
+            int len =r-l-1;
+            if(len>max_len){
+                max_len=len;
+                st=l+1;
+                end=r-1;
+                
+            }
         }
-          for(int i=0;i<n;i++){
-            string even=get_pal(s,i,i+1);
-            if(even.length()>longest.length())
-            longest=even;
-          }
-        return longest;
-    }
+        for(int i=0;i<n-1;i++){
+            int l=i,r=i+1;
+            while(l>=0 && r<n){
+                if(s[l]==s[r]){
+                    l--,r++;
+                    
+                }
+                else
+                    break;
+            }
+            int len= r-l-1;
+            if(len>max_len){
+                max_len =len;
+                st=l+1;
+                end=r-1;
+            }
+        }
+        return s.substr(st,max_len);
+        }
 };
+        
