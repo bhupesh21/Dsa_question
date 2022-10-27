@@ -6,7 +6,9 @@ public:
         for(int i=0;i<prices.size();i++){
             mindiff=min(mindiff,prices[i]);
             maxdiff=max(maxdiff,prices[i]-mindiff);
+            
         }
         return maxdiff;
+        
     }
 };
